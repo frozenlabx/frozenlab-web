@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { siteConfig } from '@/config/site';
+import { withBasePath } from '@/lib/utils';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
   },
   icons: {
-    icon: '/images/branding/logo-mark.svg',
-    shortcut: '/images/branding/logo-mark.svg',
-    apple: '/images/branding/logo-mark.svg',
+    icon: withBasePath('/images/branding/logo-mark.svg'),
+    shortcut: withBasePath('/images/branding/logo-mark.svg'),
+    apple: withBasePath('/images/branding/logo-mark.svg'),
   },
   robots: {
     index: true,

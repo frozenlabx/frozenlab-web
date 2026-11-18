@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { AppImage as Image } from '@/components/ui/image';
 import { getAllProjects } from '@/config/projects';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { AppImage as Image } from '@/components/ui/image';
 import { notFound } from 'next/navigation';
 import { getAllProjects, getProjectBySlug } from '@/config/projects';
 import { Badge } from '@/components/ui/badge';

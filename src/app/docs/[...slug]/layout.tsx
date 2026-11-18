@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'next/image';
+import { AppImage as Image } from '@/components/ui/image';
 import Link from 'next/link';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { source } from '@/lib/source';

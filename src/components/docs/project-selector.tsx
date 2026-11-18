@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { AppImage as Image } from '@/components/ui/image';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Check } from 'lucide-react';
 import { getAllProjects } from '@/config/projects';

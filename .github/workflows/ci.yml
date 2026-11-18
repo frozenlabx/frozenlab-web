@@ -55,3 +55,5 @@ jobs:
 
       - name: Production static build
         run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: '/frozenlab-web'

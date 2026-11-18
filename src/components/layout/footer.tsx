@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { AppImage as Image } from '@/components/ui/image';
 import { ExternalLink } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/icons';
 import { navigationConfig } from '@/config/navigation';
