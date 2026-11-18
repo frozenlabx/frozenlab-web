@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { AppImage as Image } from '@/components/ui/image';
 import { ExternalLink } from 'lucide-react';
-import { GithubIcon } from '@/components/ui/icons';
+import { GithubIcon, LogoMark } from '@/components/ui/icons';
 import { navigationConfig } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
 
@@ -14,12 +13,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 flex flex-col space-y-4">
             <Link href="/" className="flex items-center space-x-2.5">
-              <Image
-                src="/images/branding/logo-mark.svg"
-                alt="FrozenLab emblem"
-                width={28}
-                height={28}
-              />
+              <LogoMark className="text-foreground h-6 w-auto" />
               <span className="text-foreground text-lg font-bold">
                 Frozen<span className="text-frozen-cyan">Lab</span>
               </span>

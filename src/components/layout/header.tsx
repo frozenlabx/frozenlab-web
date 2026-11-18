@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { AppImage as Image } from '@/components/ui/image';
 import { usePathname } from 'next/navigation';
-import { GithubIcon } from '@/components/ui/icons';
+import { GithubIcon, LogoMark } from '@/components/ui/icons';
 import { navigationConfig } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
@@ -25,15 +24,7 @@ export function Header() {
             className="flex items-center space-x-2.5 transition-opacity hover:opacity-90"
             aria-label="FrozenLab Home"
           >
-            <div className="relative h-8 w-8">
-              <Image
-                src="/images/branding/logo-mark.svg"
-                alt="FrozenLab emblem"
-                width={32}
-                height={32}
-                priority
-              />
-            </div>
+            <LogoMark className="text-foreground h-7 w-auto" />
             <div className="flex flex-col">
               <span className="text-foreground text-lg font-bold tracking-tight">
                 Frozen<span className="text-frozen-cyan">Lab</span>
