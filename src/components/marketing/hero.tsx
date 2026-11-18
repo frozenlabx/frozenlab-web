@@ -93,45 +93,6 @@ export function Hero() {
             </Link>
           </Button>
         </div>
-
-        {/* Sponsor Request Showcase Card */}
-        <div className="border-border/70 bg-card/60 hover:border-border mt-12 w-full max-w-3xl rounded-2xl border p-5 text-left shadow-xl backdrop-blur-xl transition-all sm:p-6">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-            <div className="flex items-start gap-3.5">
-              <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-pink-500/25 bg-pink-500/10 text-pink-500">
-                <Heart className="h-5 w-5 fill-current" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="text-foreground text-sm font-bold sm:text-base">
-                    Support Free Open-Source Developer Tooling
-                  </h2>
-                  <span className="bg-frozen-secondary text-frozen-cyan border-frozen-cyan/30 rounded-full border px-2 py-0.5 font-mono text-[10px] font-medium">
-                    Community Funded
-                  </span>
-                </div>
-                <p className="text-muted-foreground text-xs leading-relaxed sm:text-sm">
-                  FrozenLab builds tooling like <strong>VetroLog</strong>,{' '}
-                  <strong>UI Guard</strong>, and <strong>Image Quality Guard</strong> for
-                  everyone at zero cost. Sponsoring our initiative directly supports
-                  maintenance, cross-platform testing infrastructure, and new engineering
-                  tools.
-                </p>
-              </div>
-            </div>
-
-            <Button
-              asChild
-              size="sm"
-              className="shrink-0 gap-1.5 bg-pink-600 font-semibold text-white shadow-md shadow-pink-500/20 hover:bg-pink-500"
-            >
-              <Link href={siteConfig.links.sponsor} target="_blank" rel="noreferrer">
-                <Heart className="h-3.5 w-3.5 fill-current" />
-                <span>Become a Sponsor</span>
-              </Link>
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
