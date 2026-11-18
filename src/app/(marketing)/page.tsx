@@ -9,7 +9,7 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   title: 'FrozenLab — 100% Free Developer Tools & Observability Libraries',
   description:
-    'FrozenLab builds 100% free and open-source engineering tools. Featuring VetroLog for real-time mobile SQLite inspection, UI Guard, and Image Quality Guard.',
+    'FrozenLab develops 100% free and open-source developer tools, observability utilities, and software libraries designed for modern engineering workflows.',
   alternates: {
     canonical: siteConfig.url,
   },

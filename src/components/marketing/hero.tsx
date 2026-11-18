@@ -33,12 +33,13 @@ export function Hero() {
 
         {/* Value Proposition & Free Statement */}
         <p className="text-muted-foreground mt-6 max-w-3xl text-base leading-relaxed sm:text-lg md:text-xl">
-          Deterministic developer utilities, real-time mobile SQLite inspection, and
-          practical asset guardrails. Every FrozenLab tool is{' '}
+          High-performance developer tools, observability utilities, and open-source
+          engineering libraries built for modern software workflows. Every FrozenLab tool
+          is{' '}
           <span className="text-foreground decoration-frozen-cyan/50 font-semibold underline decoration-2 underline-offset-4">
             100% free and open source forever
           </span>
-          . No subscriptions, zero feature gating, and no cloud telemetry.
+          — zero subscriptions, no feature paywalls, and complete data privacy.
         </p>
 
         {/* Value Pillars / Trust Indicators */}
