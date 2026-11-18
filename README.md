@@ -91,7 +91,7 @@ Detailed instructions are available in [CONTRIBUTING.md](./CONTRIBUTING.md).
 1. Add the project definition to `src/config/projects.ts` in the `PROJECTS` array.
 2. Create the documentation folder `content/docs/<slug>/` with `meta.json` and `index.mdx`.
 3. Add the project emblem to `public/images/projects/<slug>/logo.svg`.
-4. Run `pnpm check` to confirm everything compiles.
+4. Run `pnpm check` to confirm everything compiles
 
 ---
 
