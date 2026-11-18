@@ -17,6 +17,11 @@ export interface NavigationConfig {
 export const navigationConfig: NavigationConfig = {
   mainNav: [
     {
+      title: 'Home',
+      href: '/',
+      description: 'FrozenLab homepage and developer tooling overview.',
+    },
+    {
       title: 'Projects',
       href: '/projects',
       description: 'Explore open-source developer tools and libraries.',
@@ -64,6 +69,11 @@ export const navigationConfig: NavigationConfig = {
         {
           title: 'GitHub Organization',
           href: 'https://github.com/frozenlabx',
+          external: true,
+        },
+        {
+          title: 'Sponsor FrozenLab',
+          href: 'https://github.com/sponsors/frozenlabx',
           external: true,
         },
         {
