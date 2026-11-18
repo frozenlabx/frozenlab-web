@@ -2,13 +2,9 @@ import { createMDX } from 'fumadocs-mdx/next';
 
 const withMDX = createMDX();
 
-// Support GitHub Pages subpath deployment (/frozenlab-web) while keeping local dev at root (/)
-const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH !== undefined
-    ? process.env.NEXT_PUBLIC_BASE_PATH
-    : process.env.GITHUB_ACTIONS
-      ? '/frozenlab-web'
-      : '';
+// Root domain deployment (https://frozenlab.dev) uses empty basePath.
+// Only set NEXT_PUBLIC_BASE_PATH if deploying to a subpath.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
