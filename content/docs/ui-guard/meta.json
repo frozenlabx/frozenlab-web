@@ -1,0 +1,6 @@
+{
+  "title": "UI Guard",
+  "description": "Lightweight visual regression and interface consistency testing",
+  "root": true,
+  "pages": ["index", "getting-started"]
+}

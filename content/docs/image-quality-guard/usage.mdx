@@ -1,0 +1,46 @@
+---
+title: Image Quality Guard Usage
+description: CLI commands, configuration options, and GitHub Actions workflow integration.
+---
+
+# Image Quality Guard Usage
+
+Learn how to configure verification rules and integrate Image Quality Guard into your pull request review workflow.
+
+## Rule Definitions
+
+Configure rule sets inside `image-guard.config.json` to suit your team's visual asset budgets:
+
+| Option               | Type       | Default           | Description                                            |
+| :------------------- | :--------- | :---------------- | :----------------------------------------------------- |
+| `maxFileSizeKb`      | `number`   | `500`             | Maximum allowable size per asset file in kilobytes.    |
+| `allowedFormats`     | `string[]` | `["webp", "svg"]` | Whitelisted image extensions.                          |
+| `enforceCompression` | `boolean`  | `true`            | Fails if uncompressed bitmap formats are found.        |
+| `failOnWarning`      | `boolean`  | `false`           | Promotes advisory warnings to pipeline failure errors. |
+
+## GitHub Actions CI Integration
+
+Add Image Quality Guard to your continuous integration workflow to block regressions in pull requests:
+
+```yaml
+# .github/workflows/image-guard.yml
+name: Image Asset Guard
+on:
+  pull_request:
+    paths:
+      - 'public/images/**'
+      - 'assets/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npx @frozenlab/image-quality-guard scan
+```
+
+> [!NOTE]
+> _Maintainer Placeholder:_ For reporting hooks (e.g. PR comments summarizing byte savings), check open feature proposals in the [issues backlog](https://github.com/frozenlabx/image_quality_guard/issues).

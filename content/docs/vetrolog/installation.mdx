@@ -1,0 +1,44 @@
+---
+title: Installing VetroLog
+description: Package manager commands and runtime requirements for VetroLog.
+---
+
+# Installing VetroLog
+
+Learn how to install VetroLog into your project dependencies.
+
+## Runtime Compatibility
+
+VetroLog targets modern JavaScript and TypeScript execution environments:
+
+| Environment | Supported Version | Status     |
+| :---------- | :---------------- | :--------- |
+| Node.js     | LTS (>= 18.0.0)   | Supported  |
+| Deno        | >= 1.40.0         | Compatible |
+| Bun         | >= 1.0.0          | Compatible |
+
+## Package Manager Installation
+
+Install VetroLog using your package manager of choice:
+
+```bash
+# Using pnpm (recommended)
+pnpm add @frozenlab/vetrolog
+
+# Using npm
+npm install @frozenlab/vetrolog
+
+# Using yarn
+yarn add @frozenlab/vetrolog
+```
+
+> [!NOTE]
+> _Maintainer Notice:_ Package publishing is currently aligned with initial alpha milestones. If building directly from source during development, follow the repository instructions at [github.com/frozenlabx/vetrolog](https://github.com/frozenlabx/vetrolog).
+
+## Verifying Installation
+
+Verify that TypeScript resolves the package types by importing the base configuration interface:
+
+```typescript
+import type { LoggerConfig } from '@frozenlab/vetrolog';
+```

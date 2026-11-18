@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#0A1019" stroke="#1E2F46" stroke-width="2"/>
+  <!-- UI Window / Target Diff View -->
+  <rect x="15" y="16" width="34" height="32" rx="4" stroke="#74E1ED" stroke-width="2.5" fill="#182436" fill-opacity="0.3"/>
+  <line x1="15" y1="24" x2="49" y2="24" stroke="#1E2F46" stroke-width="2"/>
+  <circle cx="20" cy="20" r="1.5" fill="#74E1ED"/>
+  <circle cx="25" cy="20" r="1.5" fill="#74E1ED"/>
+  <rect x="20" y="29" width="10" height="14" rx="2" fill="#74E1ED" fill-opacity="0.2" stroke="#74E1ED" stroke-width="1.5"/>
+  <rect x="34" y="29" width="10" height="8" rx="2" fill="#D1FAFF" fill-opacity="0.2" stroke="#D1FAFF" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,19 @@
+name: Feature or Tool Proposal
+description: Suggest a feature for frozenlab.dev or propose a new open-source project.
+title: '[Proposal]: '
+labels: ['enhancement']
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Problem or Motivation
+      description: What problem would this proposal solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal_details
+    attributes:
+      label: Proposed Solution / Architecture
+      description: Describe the proposed capability or project scope.
+    validations:
+      required: true

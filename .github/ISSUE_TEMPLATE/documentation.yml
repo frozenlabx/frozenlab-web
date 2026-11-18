@@ -1,0 +1,28 @@
+name: Documentation Issue
+description: Report an inaccurate guide, typo, or missing documentation section.
+title: '[Doc Issue]: '
+labels: ['documentation']
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping keep FrozenLab documentation accurate and up to date.
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL or File Path
+      description: Provide the link or filesystem path to the documentation page.
+      placeholder: e.g. /docs/vetrolog/getting-started or content/docs/vetrolog/getting-started.mdx
+    validations:
+      required: true
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: What is inaccurate, missing, or unclear?
+      description: Describe what needs improvement or correction.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_change
+    attributes:
+      label: Suggested Correction
+      description: Provide the recommended revision if you have one.

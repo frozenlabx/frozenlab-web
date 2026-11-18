@@ -1,0 +1,6 @@
+{
+  "title": "Image Quality Guard",
+  "description": "Automated image validation and quality guardrails",
+  "root": true,
+  "pages": ["index", "getting-started", "installation", "usage"]
+}

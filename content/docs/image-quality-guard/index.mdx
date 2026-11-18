@@ -1,0 +1,31 @@
+---
+title: Image Quality Guard Overview
+description: Deterministic image validation and quality assurance guardrails for modern asset pipelines.
+---
+
+# Image Quality Guard
+
+**Image Quality Guard** is an open-source asset verification utility developed by FrozenLab to enforce deterministic quality, dimension, and compression boundaries across frontend repositories and continuous integration pipelines.
+
+Official Repository: [github.com/frozenlabx/image_quality_guard](https://github.com/frozenlabx/image_quality_guard)
+
+## Why Image Quality Guard?
+
+Uncompressed or oversized image assets frequently introduce severe performance regressions in production web applications:
+
+- Huge payload sizes degrade Core Web Vitals (specifically LCP).
+- Unintended resolution spikes consume excessive client memory.
+- Inconsistent format adoption (e.g. shipping uncompressed PNGs instead of WebP/AVIF).
+
+Image Quality Guard acts as an automated safety net to catch these issues in pull requests before assets reach end users.
+
+## Documentation Index
+
+| Section                                                      | Description                                                     |
+| :----------------------------------------------------------- | :-------------------------------------------------------------- |
+| [Getting Started](/docs/image-quality-guard/getting-started) | Overview of validation workflows and configuration presets.     |
+| [Installation](/docs/image-quality-guard/installation)       | CLI installation and project dependency setup.                  |
+| [Usage](/docs/image-quality-guard/usage)                     | CLI commands, configuration schema, and CI/CD workflow recipes. |
+
+> [!NOTE]
+> Project status: Alpha. Active feature development is tracked in the [issue tracker](https://github.com/frozenlabx/image_quality_guard/issues).

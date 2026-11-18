@@ -1,0 +1,62 @@
+---
+title: Getting Started with VetroLog
+description: Quick-start walkthrough covering basic initialization and structured log production.
+---
+
+# Getting Started with VetroLog
+
+This guide outlines the conceptual model and initial workflow for integrating VetroLog into your application codebase.
+
+## Conceptual Model
+
+VetroLog structures all log emissions as typed event payloads containing:
+
+- Timestamp (ISO 8601 UTC)
+- Severity level (`debug`, `info`, `warn`, `error`, `fatal`)
+- Message descriptor
+- Structured contextual metadata (key-value dictionary)
+
+```
+[Application Event] -> [VetroLog Core Engine] -> [Format Pipeline] -> [Stream Sink (stdout/stderr)]
+```
+
+## Basic Initialization Pattern
+
+Below is the standard integration pattern. Refer to the official repository for the exact export names provided in the release tag you are consuming.
+
+```typescript
+// Conceptual initialization flow
+import { createLogger } from '@frozenlab/vetrolog';
+
+const logger = createLogger({
+  level: 'info',
+  name: 'api-service',
+});
+
+// Emit structured events with contextual metadata
+logger.info('Application service initialized', {
+  port: 8080,
+  environment: 'production',
+});
+```
+
+> [!NOTE]
+> _Maintainer Note:_ Update the import specifier above as package registry publication progresses. See the [VetroLog Repository](https://github.com/frozenlabx/vetrolog) for the active package scope.
+
+## Contextual Child Loggers
+
+When processing scoped requests (such as an HTTP request or asynchronous job), create scoped child loggers to automatically inherit contextual tags:
+
+```typescript
+const requestLogger = logger.child({
+  requestId: 'req_98124',
+  userId: 'usr_042',
+});
+
+requestLogger.info('Processing order checkout');
+```
+
+## Next Steps
+
+- Review the [Installation Guide](/docs/vetrolog/installation) for environment prerequisites.
+- Explore the [Configuration Reference](/docs/vetrolog/configuration) to customize formatting and log levels.

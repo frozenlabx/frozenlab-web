@@ -1,0 +1,46 @@
+---
+title: Getting Started with UI Guard
+description: Initialize visual snapshot baselines and run comparison suites in local environments.
+---
+
+# Getting Started with UI Guard
+
+This guide walks through establishing visual baseline snapshots and running comparison audits.
+
+## Core Concepts
+
+1. **Baseline Snapshot**: The canonical reference screenshot of an isolated UI component in a known state.
+2. **Candidate Snapshot**: The screenshot captured during a pull request or test run.
+3. **Diff Threshold**: Configurable tolerance for pixel discrepancies before flagging a visual regression.
+
+## Workflow Overview
+
+```
+[Target Component] -> [Headless Renderer] -> [Generate Candidate]
+                                                    │
+                                                    ▼
+[Baseline Image] ─────────── [PixelDiff Engine] ────┤
+                                                    ▼
+                                            [Visual Audit Report]
+```
+
+## Running an Initial Baseline
+
+Generate initial component baselines:
+
+```bash
+# Capture component baselines
+npx @frozenlab/ui-guard capture --target "./src/components"
+```
+
+## Comparing Changes
+
+Run diff checks against the baseline:
+
+```bash
+# Verify components against baselines
+npx @frozenlab/ui-guard verify
+```
+
+> [!NOTE]
+> _Maintainer Placeholder:_ Full configuration schemas and framework adapters (React, Vue, Svelte) are maintained in the [UI Guard repository](https://github.com/frozenlabx/ui_guard).

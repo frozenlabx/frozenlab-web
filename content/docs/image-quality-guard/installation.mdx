@@ -1,0 +1,36 @@
+---
+title: Installing Image Quality Guard
+description: Install Image Quality Guard as a local development dependency or standalone CLI tool.
+---
+
+# Installing Image Quality Guard
+
+Image Quality Guard can be incorporated into existing Node.js repositories or run on-demand via package runners.
+
+## Local Project Installation
+
+Add as a development dependency:
+
+```bash
+# Using pnpm
+pnpm add -D @frozenlab/image-quality-guard
+
+# Using npm
+npm install --save-dev @frozenlab/image-quality-guard
+```
+
+## Global / CI Execution
+
+In CI runners where local dependency caching is bypassed, invoke directly via runner execution:
+
+```bash
+npx @frozenlab/image-quality-guard check
+```
+
+## System Requirements
+
+- Node.js >= 18.0.0
+- Operating System: macOS, Linux, Windows (x64 / arm64)
+
+> [!NOTE]
+> _Maintainer Notice:_ If building the native asset inspection modules from source, verify that your build toolchain has a standard C++ compiler available. Refer to [github.com/frozenlabx/image_quality_guard](https://github.com/frozenlabx/image_quality_guard).

@@ -1,0 +1,32 @@
+---
+title: VetroLog Overview
+description: High-throughput structured logging and observability utility engineered for clarity and performance.
+---
+
+# VetroLog
+
+**VetroLog** is an open-source structured logging and observability library developed under the FrozenLab initiative. It is engineered to provide developers with clear, low-overhead contextual logging without introducing cumbersome dependency trees.
+
+Official Repository: [github.com/frozenlabx/vetrolog](https://github.com/frozenlabx/vetrolog)
+
+## Core Architectural Objectives
+
+VetroLog is designed around three fundamental engineering principles:
+
+1. **Deterministic Structured Output**: Machine-readable JSON formatting for production environments paired with human-readable colored streams for local terminal sessions.
+2. **Predictable Low Overhead**: Careful allocation profiling to ensure logging remains non-blocking even under demanding I/O loads.
+3. **Ergonomic Context Propagation**: First-class support for child loggers, contextual metadata attachment, and redaction hooks.
+
+## Documentation Structure
+
+Navigate through the VetroLog documentation suite:
+
+| Document                                          | Purpose                                                    |
+| :------------------------------------------------ | :--------------------------------------------------------- |
+| [Getting Started](/docs/vetrolog/getting-started) | Quick tour of core concepts and lifecycle flow.            |
+| [Installation](/docs/vetrolog/installation)       | Package installation steps and peer requirements.          |
+| [Configuration](/docs/vetrolog/configuration)     | Log levels, output formatters, and redaction settings.     |
+| [Guides](/docs/vetrolog/guides)                   | Integration patterns and real-world implementation guides. |
+
+> [!NOTE]
+> VetroLog is currently under active alpha development. Follow the repository on [GitHub](https://github.com/frozenlabx/vetrolog) for the latest commit history and roadmap discussions.

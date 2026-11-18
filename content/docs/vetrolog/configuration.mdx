@@ -1,0 +1,48 @@
+---
+title: VetroLog Configuration
+description: Log level definitions, environment-aware formatters, and sensitive data redaction.
+---
+
+# VetroLog Configuration
+
+VetroLog supports environment-aware configuration to adapt between local interactive debugging and production ingestion sinks.
+
+## Log Levels
+
+The logging engine adheres to standard severity tiers:
+
+| Severity | Method              | Typical Application                                    |
+| :------- | :------------------ | :----------------------------------------------------- |
+| `trace`  | `logger.trace(...)` | Verbose diagnostic traces and internal stepping.       |
+| `debug`  | `logger.debug(...)` | Development details, cache hits, database queries.     |
+| `info`   | `logger.info(...)`  | Standard operational events and lifecycle transitions. |
+| `warn`   | `logger.warn(...)`  | Non-fatal anomalies and recoverable conditions.        |
+| `error`  | `logger.error(...)` | Failures requiring operational attention.              |
+| `fatal`  | `logger.fatal(...)` | Unrecoverable crashes precipitating process exit.      |
+
+## Formatting Options
+
+Formatters define how structured events are serialized before reaching output sinks:
+
+```typescript
+// Sample configuration schema
+export interface LoggerOptions {
+  level?: 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal';
+  format?: 'json' | 'pretty';
+  redact?: string[];
+  destination?: NodeJS.WritableStream;
+}
+```
+
+### Sensitive Data Redaction
+
+Specify field paths that should be automatically sanitized before emission:
+
+```typescript
+const logger = createLogger({
+  redact: ['password', 'authorization', 'creditCard.number'],
+});
+```
+
+> [!NOTE]
+> _Maintainer Placeholder:_ Exact redaction glob syntax and custom serializer hooks are detailed in the [GitHub issue tracker](https://github.com/frozenlabx/vetrolog/issues).

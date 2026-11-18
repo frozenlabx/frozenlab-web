@@ -1,0 +1,48 @@
+---
+title: Getting Started with Image Quality Guard
+description: Quick-start walkthrough for scanning and enforcing image quality constraints.
+---
+
+# Getting Started with Image Quality Guard
+
+Image Quality Guard operates as both a standalone command-line verification tool and an automated CI check.
+
+## Pipeline Architecture
+
+```
+[Repository Assets]
+       │
+       ▼
+[Image Quality Guard Analyzer] ──> [Format & Metadata Inspection]
+       │                        ──> [Byte Budget Verification]
+       │                        ──> [Aspect & Dimension Bounds]
+       ▼
+[Validation Report] ──> Pass (CI Success) / Fail (Non-zero exit code)
+```
+
+## Creating a Configuration File
+
+Create an `image-guard.config.json` in your repository root:
+
+```json
+{
+  "include": ["public/images/**/*", "assets/**/*"],
+  "rules": {
+    "maxFileSizeKb": 250,
+    "allowedFormats": ["webp", "avif", "svg"],
+    "maxWidth": 2560,
+    "maxHeight": 1440
+  }
+}
+```
+
+## Running an Asset Audit
+
+Run the guard tool against your assets directory:
+
+```bash
+npx image-quality-guard scan
+```
+
+> [!NOTE]
+> _Maintainer Notice:_ Exact CLI argument flags and exit codes are detailed in the [Usage Documentation](/docs/image-quality-guard/usage) and the [project README](https://github.com/frozenlabx/image_quality_guard).
