@@ -106,7 +106,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           {/* Action Buttons */}
           <div className="flex w-full items-center gap-2.5 sm:w-auto">
             <Button asChild size="default" className="flex-1 gap-2 sm:flex-none">
-              <Link href={project.docsUrl}>
+              <Link href={project.docsUrl} target="_blank" rel="noreferrer">
                 <BookOpen className="h-4 w-4" />
                 <span>Documentation</span>
               </Link>

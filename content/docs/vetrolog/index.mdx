@@ -1,32 +1,80 @@
 ---
-title: VetroLog Overview
-description: High-throughput structured logging and observability utility engineered for clarity and performance.
+title: 'VetroLog Overview'
+description: 'Zero-config desktop SQLite database inspector for mobile developers (Flutter, Android, React Native).'
 ---
 
 # VetroLog
 
-**VetroLog** is an open-source structured logging and observability library developed under the FrozenLab initiative. It is engineered to provide developers with clear, low-overhead contextual logging without introducing cumbersome dependency trees.
+**VetroLog** is an open-source, high-performance desktop SQLite database inspector engineered specifically for mobile developers. It delivers zero-SDK-code database debugging across **Flutter**, **Android Native (Kotlin/Java)**, and **React Native** via Android Debug Bridge (ADB), paired with live WAL synchronization, a visual query planner, and natural language AI query assistance.
 
 Official Repository: [github.com/frozenlabx/vetrolog](https://github.com/frozenlabx/vetrolog)
 
-## Core Architectural Objectives
+![VetroLog Live Database Inspector](/images/projects/vetrolog/images/live_inspector_hero.png)
 
-VetroLog is designed around three fundamental engineering principles:
+---
 
-1. **Deterministic Structured Output**: Machine-readable JSON formatting for production environments paired with human-readable colored streams for local terminal sessions.
-2. **Predictable Low Overhead**: Careful allocation profiling to ensure logging remains non-blocking even under demanding I/O loads.
-3. **Ergonomic Context Propagation**: First-class support for child loggers, contextual metadata attachment, and redaction hooks.
+## ⚡ Direct Download & Installation
 
-## Documentation Structure
+Choose the pre-compiled installer for your operating system:
 
-Navigate through the VetroLog documentation suite:
+### 🧩 Official Visual Studio Code Extension
 
-| Document                                          | Purpose                                                    |
-| :------------------------------------------------ | :--------------------------------------------------------- |
-| [Getting Started](/docs/vetrolog/getting-started) | Quick tour of core concepts and lifecycle flow.            |
-| [Installation](/docs/vetrolog/installation)       | Package installation steps and peer requirements.          |
-| [Configuration](/docs/vetrolog/configuration)     | Log levels, output formatters, and redaction settings.     |
-| [Guides](/docs/vetrolog/guides)                   | Integration patterns and real-world implementation guides. |
+- **[Install from VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=vetrolog.vetrolog)**
+- **[Open Directly in VS Code](vscode:extension/vetrolog.vetrolog)**
+- **[Read Extension Guide](/docs/vetrolog/deployment-and-modes/vscode-extension)**
 
-> [!NOTE]
-> VetroLog is currently under active alpha development. Follow the repository on [GitHub](https://github.com/frozenlabx/vetrolog) for the latest commit history and roadmap discussions.
+Inspect mobile SQLite over ADB, remote databases (PostgreSQL, MySQL, SQLite, MSSQL, Redis), and double-click workspace `.db` files directly inside Visual Studio Code.
+
+### 🍎 macOS (Apple Silicon M1/M2/M3/M4 & Intel)
+
+- **[Download Universal DMG (.dmg)](https://github.com/Tanvirul-swe/vetrolog/releases/latest/download/VetroLog-macOS-Universal.dmg)**
+- **[Download .zip Archive](https://github.com/Tanvirul-swe/vetrolog/releases/latest/download/VetroLog-macOS-Universal.zip)**
+- Homebrew Cask: `brew install tanvirul-swe/tap/vetrolog`
+
+👉 _See the **[macOS Installation Guide](/docs/vetrolog/getting-started/installation)** for Gatekeeper first-launch tips._
+
+### 🪟 Windows (10 / 11 64-bit)
+
+- **[Download Portable (.zip)](https://github.com/Tanvirul-swe/vetrolog/releases/latest/download/VetroLog-Windows-x64-Portable.zip)**
+- **[All Releases & Assets](https://github.com/Tanvirul-swe/vetrolog/releases/latest)**
+- Windows Package Manager: `winget install Hifzio.VetroLog`
+
+Zero-install portable package. Extract and run `vetrolog.exe` directly.
+
+👉 _See the **[Windows Installation Guide](/docs/vetrolog/getting-started/installation)** for package managers & setup details._
+
+### 🐧 Linux (amd64 / x86_64)
+
+- **[Download Debian / Ubuntu (.deb)](https://github.com/Tanvirul-swe/vetrolog/releases/latest/download/VetroLog-Linux-amd64.deb)**
+- **[Download Tarball (.tar.gz)](https://github.com/Tanvirul-swe/vetrolog/releases/latest/download/VetroLog-Linux-x64.tar.gz)**
+- Snap: `snap install vetrolog`
+- Arch Linux AUR: `yay -S vetrolog-bin`
+
+GTK3 + WebKit2GTK desktop build. Install with `sudo dpkg -i VetroLog-Linux-amd64.deb` or extract the standalone tarball.
+
+👉 _See the **[Linux Installation Guide](/docs/vetrolog/getting-started/installation)** for Snap and AUR details._
+
+---
+
+## ⚡ Why Mobile Developers Choose VetroLog
+
+- **Official VS Code Extension**: Inspect mobile SQLite databases, remote database engines (Postgres, MySQL, MariaDB, MSSQL, Redis), and double-click workspace `.db` files directly inside your editor.
+- **Zero SDK Boilerplate**: No SDK installation or network listeners required. VetroLog securely accesses app databases directly via Android Debug Bridge (`run-as`).
+- **Real-Time WAL Auto-Sync**: Monitors SQLite Write-Ahead Logging (`-wal`) and Shared Memory (`-shm`) files live. Table data updates instantaneously on desktop when writes occur.
+- **Intelligent SQL Console**: Multi-tab query editor with dot-notation column autocomplete, schema awareness, and execution timing.
+- **Visual Query Plan & 60 FPS Profiler**: Evaluates `EXPLAIN QUERY PLAN` visually with high-cost table scan alerts, and benchmarks latency against the mobile 16.6ms UI frame budget.
+- **Natural Language AI**: Translates plain English into optimized SQLite queries using Google Gemini 2.5 Flash, OpenAI, or local Ollama models.
+- **Multi-Platform & Web Mode**: Native desktop application on macOS, Windows, and Linux, plus standalone headless Web Server mode (`./vetrolog --web`).
+
+---
+
+## 🧭 Explore the Documentation
+
+| Section                                                                             | Key Guides                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| :---------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[Getting Started](/docs/vetrolog/getting-started/introduction)**                  | • [What is VetroLog?](/docs/vetrolog/getting-started/introduction)<br />• [3-Minute Quick Start](/docs/vetrolog/getting-started/quickstart)<br />• [Installation Guide](/docs/vetrolog/getting-started/installation)                                                                                                                                                                                                                                                                               |
+| **[Core Inspection Engine](/docs/vetrolog/core-features/adb-discovery)**            | • [ADB Device & App Discovery](/docs/vetrolog/core-features/adb-discovery)<br />• [Real-Time WAL Sync](/docs/vetrolog/core-features/wal-realtime-sync)<br />• [Live DataGrid Inspector](/docs/vetrolog/core-features/live-inspector)<br />• [In-Place Data Editing](/docs/vetrolog/core-features/data-editing)                                                                                                                                                                                     |
+| **[Intelligent SQL Playground](/docs/vetrolog/sql-playground/overview)**            | • [Playground Overview](/docs/vetrolog/sql-playground/overview)<br />• [Natural Language AI (Gemini)](/docs/vetrolog/sql-playground/natural-language-ai)<br />• [Visual Query Plan](/docs/vetrolog/sql-playground/visual-query-plan)<br />• [Automated Index Advisor](/docs/vetrolog/sql-playground/index-advisor)<br />• [60 FPS Profiler & Safe Dry Run](/docs/vetrolog/sql-playground/profiler-and-dryrun)<br />• [Multi-Platform Code Generator](/docs/vetrolog/sql-playground/code-generator) |
+| **[Framework Guides](/docs/vetrolog/framework-guides/flutter)**                     | • [Flutter (sqflite & Drift)](/docs/vetrolog/framework-guides/flutter)<br />• [React Native & Expo](/docs/vetrolog/framework-guides/react-native)<br />• [Android Native (Room & SQLite)](/docs/vetrolog/framework-guides/android-native)                                                                                                                                                                                                                                                          |
+| **[Deployment & Operations](/docs/vetrolog/deployment-and-modes/vscode-extension)** | • [VS Code Extension](/docs/vetrolog/deployment-and-modes/vscode-extension)<br />• [Headless Web Server Mode](/docs/vetrolog/deployment-and-modes/web-server-mode)<br />• [CLI Commands & Flags](/docs/vetrolog/deployment-and-modes/cli-reference)<br />• [CI/CD Schema Releases](/docs/vetrolog/deployment-and-modes/ci-cd-releases)                                                                                                                                                             |
+| **[Troubleshooting & Support](/docs/vetrolog/troubleshooting/common-issues)**       | • [Common Issues & ADB Fixes](/docs/vetrolog/troubleshooting/common-issues)<br />• [Frequently Asked Questions](/docs/vetrolog/troubleshooting/faq)                                                                                                                                                                                                                                                                                                                                                |

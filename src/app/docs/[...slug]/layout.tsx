@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Link from 'next/link';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { source } from '@/lib/source';
 import { ProjectSelector } from '@/components/docs/project-selector';
@@ -13,10 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       githubUrl={siteConfig.links.github}
       nav={{
         title: (
-          <Link
-            href="/"
-            className="text-foreground flex items-center gap-2 text-sm font-bold tracking-tight transition-opacity hover:opacity-90"
-          >
+          <div className="text-foreground flex items-center gap-2 text-sm font-bold tracking-tight">
             <LogoMark className="text-foreground h-5 w-auto" />
             <span>
               Frozen<span className="text-frozen-cyan">Lab</span>
@@ -24,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 / docs
               </span>
             </span>
-          </Link>
+          </div>
         ),
       }}
       sidebar={{

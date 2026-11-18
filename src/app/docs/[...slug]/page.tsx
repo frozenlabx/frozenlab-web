@@ -42,6 +42,17 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   };
 }
 
+const mdxComponents = {
+  ...defaultMdxComponents,
+  img: (props: React.ComponentProps<typeof defaultMdxComponents.img>) => {
+    const rawProps = props as Record<string, unknown>;
+    const placeholder = rawProps.blurDataURL ? rawProps.placeholder : undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const DefaultImg = defaultMdxComponents.img as React.ComponentType<any>;
+    return <DefaultImg {...props} placeholder={placeholder} />;
+  },
+};
+
 export default async function Page({ params }: DocPageProps) {
   const { slug } = await params;
   const page = source.getPage(slug);
@@ -58,7 +69,7 @@ export default async function Page({ params }: DocPageProps) {
       <DocsTitle>{data.title}</DocsTitle>
       {data.description && <DocsDescription>{data.description}</DocsDescription>}
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents }} />
+        <MDX components={mdxComponents} />
         <DocFeedback filePath={page.file.path} pageTitle={data.title} />
       </DocsBody>
     </DocsPage>

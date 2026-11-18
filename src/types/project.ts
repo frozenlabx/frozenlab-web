@@ -1,4 +1,5 @@
 export type ProjectCategory =
+  | 'Database & Mobile Tooling'
   | 'Observability & Logging'
   | 'Asset Processing'
   | 'Testing & UI'

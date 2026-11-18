@@ -83,7 +83,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             size="sm"
             className="h-8 gap-1.5 px-2.5 text-xs"
           >
-            <Link href={project.docsUrl}>
+            <Link href={project.docsUrl} target="_blank" rel="noreferrer">
               <BookOpen className="text-frozen-cyan h-3.5 w-3.5" />
               <span>Docs</span>
             </Link>

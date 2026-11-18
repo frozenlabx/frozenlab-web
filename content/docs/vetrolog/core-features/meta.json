@@ -1,0 +1,4 @@
+{
+  "title": "Core Inspection Engine",
+  "pages": ["adb-discovery", "wal-realtime-sync", "live-inspector", "data-editing"]
+}

@@ -38,23 +38,23 @@ export const PROJECTS: Project[] = [
     slug: 'vetrolog',
     name: 'VetroLog',
     description:
-      'Structured logging and observability utility engineered for clarity, performance, and developer ergonomics.',
+      'Zero-config desktop SQLite database inspector for mobile developers (Flutter, Android, React Native).',
     summary:
-      'VetroLog provides high-throughput, structured logging with pluggable formatters, zero-allocation fast paths, and clean developer experience for modern application stacks.',
-    category: 'Observability & Logging',
+      'High-performance desktop database inspector featuring zero SDK code integration, live WAL synchronization, visual query planner, and natural language AI.',
+    category: 'Database & Mobile Tooling',
     githubUrl: 'https://github.com/frozenlabx/vetrolog',
     docsUrl: '/docs/vetrolog',
     logo: '/images/projects/vetrolog/logo.svg',
-    tags: ['Logging', 'Observability', 'TypeScript', 'Performance'],
+    tags: ['SQLite', 'Mobile', 'Flutter', 'Android', 'React Native', 'DevTools'],
     featured: true,
     releaseInfo: {
-      version: '0.1.0',
-      status: 'alpha',
+      version: '1.6.0',
+      status: 'stable',
     },
     highlights: [
-      'JSON and pretty console outputs with structured metadata support',
-      'Configurable log levels, contextual child loggers, and redaction hooks',
-      'Engineered for minimal runtime overhead and zero unneeded dependencies',
+      'Zero SDK code required: inspects databases via ADB run-as without app modifications',
+      'Live Write-Ahead Log (WAL) auto-synchronization with instant DataGrid updates',
+      'Intelligent SQL console with 60 FPS mobile frame-budget profiler and natural language AI',
     ],
   },
   {

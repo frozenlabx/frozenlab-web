@@ -1,0 +1,11 @@
+{
+  "title": "Intelligent SQL Playground",
+  "pages": [
+    "overview",
+    "natural-language-ai",
+    "visual-query-plan",
+    "index-advisor",
+    "profiler-and-dryrun",
+    "code-generator"
+  ]
+}

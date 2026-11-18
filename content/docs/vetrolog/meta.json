@@ -1,6 +1,14 @@
 {
   "title": "VetroLog",
-  "description": "Structured logging and observability utility",
+  "description": "Zero-config desktop SQLite database inspector for mobile developers",
   "root": true,
-  "pages": ["index", "getting-started", "installation", "configuration", "guides"]
+  "pages": [
+    "index",
+    "getting-started",
+    "core-features",
+    "sql-playground",
+    "framework-guides",
+    "deployment-and-modes",
+    "troubleshooting"
+  ]
 }

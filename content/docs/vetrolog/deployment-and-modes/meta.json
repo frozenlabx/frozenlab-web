@@ -1,0 +1,4 @@
+{
+  "title": "Deployment & Operations",
+  "pages": ["vscode-extension", "web-server-mode", "cli-reference", "ci-cd-releases"]
+}
