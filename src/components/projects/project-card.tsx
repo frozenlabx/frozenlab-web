@@ -21,13 +21,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Top Header: Logo + Badges */}
         <div className="mb-4 flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="border-border/80 bg-frozen-secondary/80 relative flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border p-2">
+            <div className="border-border/80 bg-card/60 relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border p-1 shadow-sm">
               <Image
                 src={project.logo}
                 alt={`${project.name} logo`}
-                width={36}
-                height={36}
-                className="transition-transform duration-200 group-hover:scale-105"
+                width={40}
+                height={40}
+                className="h-full w-full rounded-lg object-contain transition-transform duration-200 group-hover:scale-105"
               />
             </div>
             <div>

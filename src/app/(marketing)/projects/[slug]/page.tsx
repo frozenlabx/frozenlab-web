@@ -68,12 +68,13 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         {/* Project Header */}
         <div className="border-border flex flex-col items-start justify-between gap-6 border-b pb-8 sm:flex-row">
           <div className="flex items-start gap-4">
-            <div className="border-border bg-frozen-secondary relative flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border p-3">
+            <div className="border-border bg-card/60 relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border p-1.5 shadow-sm">
               <Image
                 src={project.logo}
                 alt={`${project.name} logo`}
-                width={48}
-                height={48}
+                width={56}
+                height={56}
+                className="h-full w-full rounded-xl object-contain"
                 priority
               />
             </div>

@@ -53,8 +53,14 @@ export default function DocsPortalPage() {
               >
                 <div>
                   <div className="mb-4 flex items-start justify-between gap-3">
-                    <div className="border-border bg-frozen-secondary relative flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border p-2.5">
-                      <Image src={project.logo} alt="" width={32} height={32} />
+                    <div className="border-border bg-card/60 relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border p-1 shadow-sm">
+                      <Image
+                        src={project.logo}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className="h-full w-full rounded-lg object-contain"
+                      />
                     </div>
                     {project.releaseInfo && (
                       <Badge variant="alpha">v{project.releaseInfo.version}</Badge>

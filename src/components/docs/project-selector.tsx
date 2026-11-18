@@ -82,8 +82,14 @@ export function ProjectSelector() {
                   )}
                 >
                   <div className="flex items-center gap-2 truncate">
-                    <div className="border-border bg-frozen-secondary relative flex h-5 w-5 shrink-0 items-center justify-center rounded border p-0.5">
-                      <Image src={project.logo} alt="" width={14} height={14} />
+                    <div className="border-border bg-card/60 relative flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-md border shadow-sm">
+                      <Image
+                        src={project.logo}
+                        alt=""
+                        width={18}
+                        height={18}
+                        className="h-full w-full rounded object-contain"
+                      />
                     </div>
                     <div className="truncate">
                       <div className="font-medium">{project.name}</div>
