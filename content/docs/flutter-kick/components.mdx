@@ -1,0 +1,70 @@
+---
+title: Toolchain Components & Versions
+description: Detailed component matrix including JDK, Android SDK cmdline-tools, NDK smart resolution, CMake, Gradle, and Flutter SDK channels.
+---
+
+# Toolchain Components & Versions
+
+Flutter-Kick provisions each component directly from verified upstream distributions (Adoptium Eclipse Temurin, Google Android Repository, Gradle Services, and Flutter Engine Git).
+
+---
+
+## ⚙️ Component Matrix
+
+Below is the complete component breakdown comparing the **Recommended LTS** preset against customizable options:
+
+| Component       | Default (LTS)   | Popular Options                   | Description                                                                               |
+| :-------------- | :-------------- | :-------------------------------- | :---------------------------------------------------------------------------------------- |
+| **OpenJDK**     | `17`            | `17`, `21`                        | Eclipse Temurin OpenJDK runtime required for Gradle and Android Gradle Plugin (AGP).      |
+| **Android API** | `36`            | `36`, `35`, `34`                  | Android SDK platform levels. Accepts comma-separated lists (e.g. `34,35,36`).             |
+| **Build-Tools** | `36.0.0`        | `36.0.0`, `35.0.0`, `34.0.0`      | Target compiler and packaging utilities (`aapt2`, `d8`, `zipalign`).                      |
+| **Android NDK** | `27.2.12479018` | `28.0`, `27.2`, `26.3`, `skip`    | Native Development Kit for C/C++ plugins and Rust FFI. Includes smart version resolution. |
+| **CMake**       | `3.22.1`        | `3.22.1`, `3.28.0`, `skip`        | AGP-compatible C/C++ build system.                                                        |
+| **Gradle**      | `8.11.1`        | `8.11.1`, `8.10.2`, `skip`        | Official binary release for standalone command-line task builds.                          |
+| **Flutter SDK** | `stable`        | `stable`, `beta`, `master`, `fvm` | Official Flutter SDK channel or FVM integration mode.                                     |
+
+---
+
+## 🧠 Smart NDK Resolution
+
+Android NDK versions are traditionally identified by long build numbers (such as `27.2.12479018`). Remembering or writing these strings in CI configs is error-prone.
+
+Flutter-Kick introduces **Smart NDK Resolution**: you can specify concise version prefixes, and the bootstrapper automatically resolves the corresponding production LTS build revision:
+
+```text
+Input:  --ndk 28.0  ──►  Auto-Resolves: 28.0.13004108
+Input:  --ndk 27.2  ──►  Auto-Resolves: 27.2.12479018
+Input:  --ndk 26.3  ──►  Auto-Resolves: 26.3.11579264
+Input:  --ndk skip  ──►  Skips NDK installation (saves ~1.2 GB)
+```
+
+---
+
+## 📦 Multi-API Provisioning
+
+Need to support legacy devices alongside the latest Android OS in enterprise or testing suites? Pass multiple API levels in a single command:
+
+```bash
+./install.sh --api "34,35,36" --yes
+```
+
+Flutter-Kick loops through each target API, downloads the platform packages via `sdkmanager`, and automatically installs matching build-tool releases.
+
+---
+
+## 🔀 Flutter Version Management (FVM) Support
+
+If your team uses [FVM (Flutter Version Management)](https://fvm.app/) to maintain per-project Flutter versions, you can configure Flutter-Kick to manage only the Android SDK toolchain and integrate with FVM:
+
+```bash
+./install.sh --flutter fvm --yes
+```
+
+In this mode, Flutter-Kick skips cloning the global Flutter SDK while ensuring all Android prerequisites (`JAVA_HOME`, `ANDROID_HOME`, `cmdline-tools`, and `adb`) are fully configured and ready for FVM commands.
+
+---
+
+## Next Steps
+
+- Explore [CLI Reference](/docs/flutter-kick/cli-reference) to automate installations.
+- Return to [Flutter-Kick Overview](/docs/flutter-kick) for architectural benefits.

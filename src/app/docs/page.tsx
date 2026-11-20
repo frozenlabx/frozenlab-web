@@ -45,7 +45,7 @@ export default function DocsPortalPage() {
           </div>
 
           {/* Project Documentation Cards */}
-          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {projects.map((project) => (
               <div
                 key={project.id}

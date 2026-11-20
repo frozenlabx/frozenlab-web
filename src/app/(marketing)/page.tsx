@@ -47,6 +47,19 @@ const jsonLd = {
     },
     {
       '@type': 'SoftwareApplication',
+      name: 'Flutter-Kick',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'macOS, Linux, Windows',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description:
+        'Lightweight, automated bootstrapper configuring headless Android SDK and Flutter toolchains without Android Studio.',
+    },
+    {
+      '@type': 'SoftwareApplication',
       name: 'UI Guard',
       applicationCategory: 'DeveloperApplication',
       operatingSystem: 'Cross-platform',

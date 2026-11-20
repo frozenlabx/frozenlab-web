@@ -58,6 +58,31 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    id: 'flutter-kick',
+    slug: 'flutter-kick',
+    name: 'Flutter-Kick',
+    description:
+      'Lightweight, automated bootstrapper configuring headless Android SDK & Flutter toolchains without Android Studio.',
+    summary:
+      'An automated CLI bootstrapper for Linux, macOS, and Windows that provisions a complete headless Android SDK (JDK, cmdline-tools, NDK, CMake, Gradle) and Flutter toolchain, saving over 4+ GB of disk overhead.',
+    category: 'Developer Tooling',
+    githubUrl: 'https://github.com/frozenlabx/flutter-kick',
+    docsUrl: '/docs/flutter-kick',
+    logo: '/images/projects/flutter-kick/logo.svg',
+    tags: ['Flutter', 'Android SDK', 'CLI', 'DevOps', 'CI/CD', 'PowerShell', 'Bash'],
+    featured: true,
+    releaseInfo: {
+      version: '1.0.0',
+      status: 'stable',
+    },
+    highlights: [
+      'Headless & Fast: 4+ GB disk saved by omitting heavy Android Studio GUI packages',
+      'Concurrent downloads with live progress for JDK, cmdline-tools, Gradle, and Flutter',
+      'Smart NDK version resolution with automatic LTS revision mapping (e.g. 28.0 -> 28.0.13004108)',
+      'Idempotent, reversible shell environment injection (.zshrc, .bashrc, config.fish, and Windows Registry)',
+    ],
+  },
+  {
     id: 'image-quality-guard',
     slug: 'image-quality-guard',
     name: 'Image Quality Guard',

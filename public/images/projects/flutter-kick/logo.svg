@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#090D16"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+
+    <!-- Outer Border Glow -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#0284C7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3DDC84" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Flutter Primary Blue Gradient -->
+    <linearGradient id="flutterBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#54C5F8"/>
+      <stop offset="50%" stop-color="#29B6F6"/>
+      <stop offset="100%" stop-color="#02569B"/>
+    </linearGradient>
+
+    <!-- Flutter Deep Blue Gradient -->
+    <linearGradient id="flutterDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0288D1"/>
+      <stop offset="100%" stop-color="#014175"/>
+    </linearGradient>
+
+    <!-- Kick Lightning & Android Accent -->
+    <linearGradient id="kickAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3DDC84"/>
+      <stop offset="60%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+
+    <!-- Cyber Cyan Boost -->
+    <linearGradient id="boostCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="50%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Canvas -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="4" filter="url(#dropShadow)"/>
+
+  <!-- Subtle Radial Background Glow -->
+  <circle cx="256" cy="256" r="160" fill="#0284C7" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="340" cy="200" r="100" fill="#3DDC84" opacity="0.08" filter="url(#glow)"/>
+
+  <!-- Group: Emblem -->
+  <g transform="translate(256, 240)" filter="url(#dropShadow)">
+    <!-- Flutter Upper Wing Chevron -->
+    <path d="M -90 -130 L 40 0 L -25 65 L -155 -65 Z" fill="url(#flutterBlue)"/>
+    
+    <!-- Flutter Lower Wing Chevron -->
+    <path d="M -90 130 L 40 0 L -25 -65 L -155 65 Z" fill="url(#flutterDeep)" opacity="0.9"/>
+    
+    <!-- Kick / Turbo Lightning Spear (Fused Dynamic Accent) -->
+    <path d="M 15 -145 L 110 -40 L 45 -40 L 125 70 L -10 0 L 45 0 Z" 
+          fill="url(#kickAccent)" 
+          filter="url(#glow)"/>
+
+    <!-- Speed Spark Cut -->
+    <polygon points="120,65 145,100 105,90" fill="#3DDC84" opacity="0.9"/>
+    <polygon points="-40,-130 -20,-155 -15,-125" fill="#38BDF8" opacity="0.8"/>
+
+    <!-- Core Dynamic Accent -->
+    <path d="M -25 -65 L 40 0 L -25 65 L -55 35 L -10 0 L -55 -35 Z" fill="url(#boostCyan)"/>
+  </g>
+
+  <!-- Wordmark Tag -->
+  <g transform="translate(256, 435)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="28" letter-spacing="4" fill="#F8FAFC">
+      FLUTTER<tspan fill="#3DDC84">·</tspan><tspan fill="#38BDF8">KICK</tspan>
+    </text>
+  </g>
+</svg>

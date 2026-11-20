@@ -40,7 +40,7 @@ export function FeaturedProjects() {
         </div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {featured.map((project) => (
             <ProjectCard key={project.id} project={project} featured />
           ))}

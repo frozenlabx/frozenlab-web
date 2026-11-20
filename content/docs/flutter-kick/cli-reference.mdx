@@ -1,0 +1,118 @@
+---
+title: CLI Reference & Automation
+description: Complete command-line flag reference for install.sh and install.ps1, dry-run mode, and CI/CD pipelines.
+---
+
+# CLI Reference & Automation
+
+Flutter-Kick is built for automation. Every interactive prompt can be bypassed using explicit command-line flags.
+
+---
+
+## 🚩 Command-Line Flags
+
+Below is the comparison table between Unix (`install.sh`) and Windows PowerShell (`install.ps1`):
+
+| Flag (Unix)      | Parameter (PowerShell) | Description                                                   | Default  |
+| :--------------- | :--------------------- | :------------------------------------------------------------ | :------- |
+| `--default`      | `-Default`             | Installs recommended LTS toolchain non-interactively.         | `false`  |
+| `--jdk <ver>`    | `-Jdk <ver>`           | OpenJDK version (`17` or `21`).                               | `17`     |
+| `--api <list>`   | `-Api <list>`          | Target Android API levels (comma-separated, e.g. `34,35,36`). | `36`     |
+| `--ndk <ver>`    | `-Ndk <ver>`           | Android NDK version (`28.0`, `27.2`, `26.3`, or `skip`).      | `27.2`   |
+| `--cmake <ver>`  | `-Cmake <ver>`         | CMake version (`3.22.1`, `3.28.0`, or `skip`).                | `3.22.1` |
+| `--gradle <ver>` | `-Gradle <ver>`        | Standalone Gradle distribution (`8.11.1` or `skip`).          | `8.11.1` |
+| `--flutter <ch>` | `-Flutter <ch>`        | Flutter SDK channel (`stable`, `beta`, `master`, or `fvm`).   | `stable` |
+| `--yes`, `-y`    | `-Yes`, `-y`           | Automatically confirms prompts and license agreements.        | `false`  |
+| `--dry-run`      | `-DryRun`              | Simulates installation without writing any files to disk.     | `false`  |
+| `--uninstall`    | `-Uninstall`           | Removes installed SDK directories and shell markers.          | `false`  |
+| `--help`, `-h`   | `-Help`, `-h`          | Displays the help manual and options.                         | —        |
+
+---
+
+## 🔍 Dry-Run Simulation Mode
+
+To verify which directories and environment variables will be touched before running the installer on production systems, execute `--dry-run`:
+
+### Unix
+
+```bash
+./install.sh --dry-run --default
+```
+
+### Windows (PowerShell)
+
+```powershell
+.\install.ps1 -DryRun -Default
+```
+
+---
+
+## 🤖 CI/CD Integration Recipes
+
+### GitHub Actions Workflow
+
+```yaml
+name: Build Flutter Android APK
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Install Android & Flutter Toolchain via Flutter-Kick
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.sh | bash -s -- --default
+
+      - name: Build Android Release APK
+        run: |
+          source ~/.bashrc
+          flutter pub get
+          flutter build apk --release
+```
+
+### Docker Containerfile
+
+```dockerfile
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y curl git unzip bash && rm -rf /var/lib/apt/lists/*
+
+# Run Flutter-Kick non-interactively
+RUN curl -fsSL https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.sh | bash -s -- --default
+
+ENV PATH="/root/flutter/bin:/root/Android/sdk/cmdline-tools/latest/bin:/root/Android/sdk/platform-tools:${PATH}"
+RUN flutter doctor -v
+```
+
+---
+
+## 🧪 Automated Test Suite
+
+The Flutter-Kick repository includes an end-to-end automated testing suite with **75 comprehensive test cases**:
+
+```bash
+./tests/test_suite.sh
+```
+
+The test runner verifies:
+
+- Correct defaults and flag parsing
+- Host OS and CPU architecture detection
+- Safe environment marker block replacement and idempotency
+- Smart NDK version mapping and fallbacks
+- Non-interactive license acceptance
+- Post-install binary verification
+
+---
+
+## Next Steps
+
+- Return to [Flutter-Kick Overview](/docs/flutter-kick)
+- Jump to [Quick Start](/docs/flutter-kick/quickstart)

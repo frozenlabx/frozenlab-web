@@ -47,6 +47,7 @@ export const navigationConfig: NavigationConfig = {
       category: 'Projects',
       items: [
         { title: 'VetroLog', href: '/docs/vetrolog' },
+        { title: 'Flutter-Kick', href: '/docs/flutter-kick' },
         { title: 'Image Quality Guard', href: '/docs/image-quality-guard' },
         { title: 'UI Guard', href: '/docs/ui-guard' },
         { title: 'All Projects', href: '/projects' },
@@ -57,6 +58,7 @@ export const navigationConfig: NavigationConfig = {
       items: [
         { title: 'Docs Portal', href: '/docs' },
         { title: 'VetroLog Guide', href: '/docs/vetrolog/getting-started' },
+        { title: 'Flutter-Kick Guide', href: '/docs/flutter-kick/quickstart' },
         { title: 'Image Guard Guide', href: '/docs/image-quality-guard/getting-started' },
         { title: 'UI Guard Guide', href: '/docs/ui-guard/getting-started' },
       ],

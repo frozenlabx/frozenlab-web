@@ -1,0 +1,74 @@
+---
+title: Flutter-Kick Overview
+description: Lightweight, automated bootstrapper configuring a complete headless Android SDK and Flutter toolchain without Android Studio.
+---
+
+# Flutter-Kick
+
+**Flutter-Kick** is a cross-platform, automated developer utility developed by FrozenLab that provisions a complete **headless Android SDK and Flutter toolchain** without requiring Android Studio (~4+ GB of disk space saved).
+
+Official Repository: [github.com/frozenlabx/flutter-kick](https://github.com/frozenlabx/flutter-kick)
+
+---
+
+## Why Flutter-Kick?
+
+Installing Flutter and targeting Android usually involves downloading **Android Studio** — a multi-gigabyte heavy IDE containing an emulator, code inspection engines, and graphic profilers that many developers and CI/CD agents never need.
+
+```
+Standard Setup:       Android Studio (4+ GB) + SDK + NDK + Flutter = ~8-10 GB
+Flutter-Kick Setup:   Headless SDK + NDK + Tools + Flutter         = ~2.5 GB
+```
+
+Flutter-Kick streamlines this entire setup into a fast, automated command-line bootstrapper:
+
+- **Saves 4+ GB of Disk Space**: Downloads only the command-line tools, platforms, build-tools, NDK, CMake, Gradle, and Flutter SDK.
+- **Concurrent Ingestion**: Downloads JDK, Android cmdline-tools, Gradle, and Flutter simultaneously with live progress bars.
+- **Cross-Platform Support**: Works out of the box on macOS (Intel & Apple Silicon), Linux (Ubuntu, Debian, Fedora, Arch), and Windows (PowerShell 5.1 & 7+).
+- **Zero-Friction CI/CD**: Single one-liner installs your entire toolchain non-interactively in GitHub Actions, GitLab CI, or Docker containers.
+- **Idempotent Shell Environment**: Modifies `.zshrc`, `.bashrc`, `config.fish`, or Windows User Environment Variables via safe, reversible marker blocks.
+
+---
+
+## ⚡ 1-Minute Quick Start
+
+Run the installation one-liner in your terminal:
+
+### macOS & Linux
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.sh | bash
+```
+
+### Windows (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.ps1 | iex
+```
+
+---
+
+## Core Capabilities
+
+| Feature                             | Description                                                                                      |
+| :---------------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Headless SDK**                    | Provisons Android Command-Line Tools, Platform APIs, and Build-Tools without GUI overhead.       |
+| **Concurrent Downloads**            | Multithreaded ingestion engine streams OpenJDK, cmdline-tools, Gradle, and Flutter concurrently. |
+| **Smart NDK Resolution**            | Converts partial versions (e.g. `28.0` or `27.2`) to full LTS release revisions automatically.   |
+| **Multi-API Platform Support**      | Provision multiple Android API levels in a single pass (e.g. `--api 34,35,36`).                  |
+| **Automated Doctor & Verification** | Runs automated self-tests (`java`, `gradle`, `adb`) and handles Android license agreements.      |
+| **Clean Reversible Uninstaller**    | Removes all installed SDK folders and cleanly deletes environment variable marker blocks.        |
+
+---
+
+## Documentation Navigation
+
+Explore detailed guides and reference documentation:
+
+- [Quick Start](/docs/flutter-kick/quickstart) — Interactive mode, non-interactive CI/CD setups, and verification.
+- [Installation Guide](/docs/flutter-kick/installation) — Supported operating systems, package managers, and shell configuration.
+- [Toolchain Components](/docs/flutter-kick/components) — Details on OpenJDK, Android cmdline-tools, NDK, CMake, and Flutter SDK channels.
+- [CLI Reference](/docs/flutter-kick/cli-reference) — Complete flags reference for `install.sh` and `install.ps1`, dry-run mode, and test suite.
+
+> [!NOTE]
+> Flutter-Kick is an open-source initiative released under the MIT license. Bug reports and contributions are tracked on the [GitHub repository](https://github.com/frozenlabx/flutter-kick).

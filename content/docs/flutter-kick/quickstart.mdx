@@ -1,0 +1,114 @@
+---
+title: Quick Start
+description: Get up and running with Flutter-Kick in under two minutes with interactive and non-interactive installation workflows.
+---
+
+# Quick Start
+
+Get a fully working headless Android SDK and Flutter toolchain on your machine without cloning any repository or downloading Android Studio.
+
+---
+
+## ⚡ 1-Click Interactive Installation
+
+Open your terminal or PowerShell console and paste the appropriate command below:
+
+### macOS & Linux (Bash / Zsh)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.sh | bash
+```
+
+### Windows (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.ps1 | iex
+```
+
+> [!TIP]
+> On Windows, if you encounter execution policy restrictions, allow scripts for the current process:
+>
+> ```powershell
+> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+> ```
+
+---
+
+## 🛠️ Interactive Menu Walkthrough
+
+When running in interactive mode, Flutter-Kick inspects your operating system, architecture, and existing dependencies before presenting an interactive selection:
+
+```text
+=====================================================
+            FLUTTER-KICK BOOTSTRAPPER
+=====================================================
+[1] Recommended LTS (Android API 36, JDK 17, NDK 27, Gradle 8.11, Flutter Stable)
+[2] Custom Setup (Configure individual component versions)
+[3] Uninstall Toolchain & Restore Shell Profile
+[4] Exit
+```
+
+- **[1] Recommended LTS**: Installs tested, long-term-supported defaults ideal for 95% of Flutter mobile projects.
+- **[2] Custom Setup**: Allows selecting specific JDK versions, multiple Android APIs (e.g. `34,35,36`), custom NDK revisions, CMake, and Flutter channels (`stable`, `beta`, `master`, or `fvm`).
+- **[3] Uninstall**: Reverts all environment variable injections and removes SDK directories.
+
+---
+
+## 🚀 Non-Interactive LTS Mode (CI/CD)
+
+For automated server provisioning, headless virtual machines, or CI/CD pipelines, execute the non-interactive installation one-liner:
+
+### Unix (macOS / Linux)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.sh | bash -s -- --default
+```
+
+### Windows (PowerShell)
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/frozenlabx/flutter-kick/main/install.ps1))) -Default
+```
+
+---
+
+## 🧪 Post-Installation Verification
+
+Once the bootstrapper completes, refresh your active shell session:
+
+### macOS & Linux
+
+```bash
+# Reload your shell configuration
+source ~/.zshrc   # or source ~/.bashrc
+
+# Verify Flutter and Android licenses
+flutter doctor -v
+```
+
+### Windows (PowerShell)
+
+Open a new PowerShell terminal window and verify:
+
+```powershell
+flutter doctor -v
+```
+
+Expected output:
+
+```text
+[✓] Flutter (Channel stable, 3.x.x, on macOS, locale en-US)
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.0.0)
+[✓] Connected device (1 available)
+[✓] Network resources
+
+• No issues found!
+```
+
+---
+
+## Next Steps
+
+- Explore [Installation Guide](/docs/flutter-kick/installation) for platform-specific prerequisites and shell injection mechanisms.
+- Read [Toolchain Components](/docs/flutter-kick/components) to customize JDK, NDK, and Gradle targets.
+- Review [CLI Reference](/docs/flutter-kick/cli-reference) to automate installation with flags.

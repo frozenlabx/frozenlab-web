@@ -1,0 +1,6 @@
+{
+  "title": "Flutter-Kick",
+  "description": "Headless Android SDK and Flutter toolchain bootstrapper",
+  "root": true,
+  "pages": ["index", "quickstart", "installation", "components", "cli-reference"]
+}

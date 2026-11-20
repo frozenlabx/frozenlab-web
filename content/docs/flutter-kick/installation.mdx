@@ -1,0 +1,98 @@
+---
+title: Installation & Platform Guide
+description: Detailed platform compatibility, prerequisites, shell environment variable management, and uninstallation.
+---
+
+# Installation & Platform Guide
+
+Flutter-Kick is engineered from the ground up with zero external runtime dependencies beyond standard system utilities available across modern operating systems.
+
+---
+
+## 🖥️ Supported Platforms & Package Managers
+
+Flutter-Kick automatically detects the host platform, system package manager, and CPU architecture:
+
+| Platform            | Family        | Package Manager      | Architectures                                         |
+| :------------------ | :------------ | :------------------- | :---------------------------------------------------- |
+| **macOS**           | Darwin        | Homebrew             | `arm64` (Apple Silicon M1/M2/M3/M4), `x86_64` (Intel) |
+| **Ubuntu / Debian** | Debian        | `apt-get`            | `x86_64`, `arm64`                                     |
+| **Fedora / RHEL**   | Fedora        | `dnf`                | `x86_64`, `arm64`                                     |
+| **Arch / Manjaro**  | Arch          | `pacman`             | `x86_64`, `arm64`                                     |
+| **Windows**         | Windows 10/11 | PowerShell 5.1+ / 7+ | `x64`, `ARM64`                                        |
+
+---
+
+## Automated Host Prerequisites
+
+Before downloading SDK components, the bootstrapper ensures basic command-line tooling is available on your machine:
+
+- `curl` (downloading binaries)
+- `unzip` / `tar` (archive extraction)
+- `git` (Flutter repository synchronization)
+
+If any of these utilities are missing, Flutter-Kick prompts you to automatically install them via your system package manager (`brew`, `apt-get`, `dnf`, or `pacman`).
+
+---
+
+## 🐚 Shell Environment Injection
+
+Flutter-Kick configures your shell environment idempotently. Instead of appending haphazard export lines that duplicate across reruns, Flutter-Kick uses **safe, reversible marker blocks**:
+
+### Unix (`~/.zshrc`, `~/.bashrc`, `~/.config/fish/config.fish`)
+
+```bash
+# >>> flutter-kick environment >>>
+export ANDROID_HOME="$HOME/Android/sdk"
+export ANDROID_SDK_ROOT="$HOME/Android/sdk"
+export JAVA_HOME="$HOME/.flutter-kick/jdk17"
+export GRADLE_HOME="$HOME/.flutter-kick/gradle/gradle-8.11.1"
+
+export PATH="$JAVA_HOME/bin:$GRADLE_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/36.0.0:$HOME/flutter/bin:$PATH"
+# <<< flutter-kick environment <<<
+```
+
+### Windows (User Environment Registry)
+
+On Windows, Flutter-Kick writes directly to `HKCU:\Environment`:
+
+- `JAVA_HOME`
+- `ANDROID_HOME`
+- `GRADLE_HOME`
+- Updates user `PATH` with `cmdline-tools`, `platform-tools`, `build-tools`, `gradle\bin`, and `flutter\bin`.
+
+> [!NOTE]
+> Re-running Flutter-Kick updates the existing marker block in-place without corrupting custom shell configurations or duplicate PATH entries.
+
+---
+
+## 🗑️ Clean Uninstallation
+
+If you ever wish to remove the toolchain, Flutter-Kick provides a built-in uninstaller that deletes installed SDK directories and cleanly removes the shell marker block:
+
+### Unix (macOS / Linux)
+
+```bash
+# Interactive uninstallation
+./install.sh --uninstall
+
+# Non-interactive forced uninstallation
+./install.sh --uninstall --yes
+```
+
+### Windows (PowerShell)
+
+```powershell
+# Interactive uninstallation
+.\install.ps1 -Uninstall
+
+# Non-interactive forced uninstallation
+.\install.ps1 -Uninstall -Yes
+```
+
+---
+
+## Next Steps
+
+- Check [Toolchain Components](/docs/flutter-kick/components) to view all provisioned SDK packages.
+- Check [CLI Reference](/docs/flutter-kick/cli-reference) for pipeline automation options.
