@@ -25,6 +25,7 @@ The official website and multi-project documentation platform for **FrozenLab** 
 | Project                 | Category                | Repository                                                                                     | Documentation                                          |
 | :---------------------- | :---------------------- | :--------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
 | **VetroLog**            | Observability & Logging | [github.com/frozenlabx/vetrolog](https://github.com/frozenlabx/vetrolog)                       | [/docs/vetrolog](/docs/vetrolog)                       |
+| **Flutter-Kick**        | Developer Tooling       | [github.com/frozenlabx/flutter-kick](https://github.com/frozenlabx/flutter-kick)               | [/docs/flutter-kick](/docs/flutter-kick)               |
 | **Image Quality Guard** | Asset Processing        | [github.com/frozenlabx/image_quality_guard](https://github.com/frozenlabx/image_quality_guard) | [/docs/image-quality-guard](/docs/image-quality-guard) |
 | **UI Guard**            | Testing & UI            | [github.com/frozenlabx/ui_guard](https://github.com/frozenlabx/ui_guard)                       | [/docs/ui-guard](/docs/ui-guard)                       |
 
